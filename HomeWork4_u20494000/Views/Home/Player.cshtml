@@ -1,0 +1,90 @@
+﻿@model IEnumerable<HomeWork4_u20494000.Models.Player>
+@{
+    ViewBag.Title = "Player";
+}
+
+<h2>PLAYER</h2>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class=" col-lg-10 col-sm-10 col-xs-10">
+            <h2>Women's pleayer registrations:</h2>
+            <p>Join DelfosFC Womens team today!</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @using (Html.BeginForm("AddPlayer", "Home", FormMethod.Post))
+        {
+            <div class="form-group">
+                <div class=" col-lg-10 col-sm-10 col-xs-10 form-group">
+                    <h2>Register Player:</h2>
+                    <br />
+
+                    <lable>Name:</lable>
+                    <input type="text" class="form-control" id="Name" name="Name" />
+
+                    <lable>Surname:</lable>
+                    <input type="text" class="form-control" id="Surname" name="Surname" />
+
+                    <lable>Cellphone:</lable>
+                    <input type="text" class="form-control" id="CellPhone" name="CellPhone" />
+
+                    <lable>Age:</lable>
+                    <input type="text" class="form-control" id="Age" name="Age" />
+
+                    <lable>Height:</lable>
+                    <input type="number" class="form-control" id="Height" name="Height" />
+
+                    <lable>Position:</lable>
+                    <select type="text" class="form-control" id="Position" name="Position">
+                        <option value="Goal Keeper">Goal Keeper</option>
+                        <option value="Midfielder">Midfielder</option>
+                        <option value="Defender">Defender</option>
+                        <option value="Striker">Striker</option>
+                    </select>
+
+                    <lable>Strong Foot:</lable>
+                    <select type="text" class="form-control" id="StrongF" name="StrongF">
+                        <option value="Right">Right</option>
+                        <option value="Left">Left</option>
+                    </select>
+
+                    <br />
+                    <button class="btn-primary" onclick="window.location.href = '@Url.Action("AddPlayer", "Home")'">Add Player</button>
+                </div>
+            </div>
+        }
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Firstname</th>
+                    <th scope="col">Lastname</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Height</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">StrongFoot</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.FirstName</td>
+                        <td>@x.LastName</td>
+                        <td>@x.PhoneNumber</td>
+                        <td>@x.Age</td>
+                        <td>@x.Height</td>
+                        <td>@x.Position</td>
+                        <td>@x.StrongFoot</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+    
+</div>

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<HomeWork4_u20494000.Models.Staff>
+@{
+    ViewBag.Title = "Staff";
+}
+
+<h2>STAFF</h2>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class=" col-lg-10 col-sm-10 col-xs-10">
+            <h2>JOIN THE STAFF TEAM!</h2>
+            <p>DelfosFC is offering women the chance to get a feel of the working world would be like in their future and the same time gain work exprerience .</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-group">
+    @using (Html.BeginForm("AddStaff", "Home", FormMethod.Post))
+    {
+        <div class="form-group">
+            <div class=" col-lg-10 col-sm-10 col-xs-10 form-group">
+                <h2>REGISTER Staff Member:</h2>
+                <br />
+
+                <lable>Name:</lable>
+                <input type="text" class="form-control" id="Name" name="Name" />
+
+                <lable>Surname:</lable>
+                <input type="text" class="form-control" id="Surname" name="Surname" />
+
+                <lable>Cellphone:</lable>
+                <input type="text" class="form-control" id="CellPhone" name="CellPhone" />
+
+                <lable>Age:</lable>
+                <input type="text" class="form-control" id="Age" name="Age" />
+
+                <lable>Job Type:</lable>
+                <select type="text" class="form-control" id="JobT" name="JobT">
+                    <option value="Coach">Coach</option>
+                    <option value="Physio Therapist">Physio Therapist</option>
+                    <option value="Receptionist">Receptionist</option>
+                    <option value="Ground Staff">Ground Staff:</option>
+                </select>
+
+                <lable>Experience:</lable>
+                <input type="text" class="form-control" id="Exp" name="Exp" />
+                <br />
+                <button class="btn-primary" onclick="location.href = '@Url.Action("AddStaff","Home")'">Add Staff</button>
+
+            </div>
+           
+        </div>
+    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Firstname</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Age</th>
+                <th scope="col">Job Type</th>
+                <th scope="col">Experience</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            { 
+            <tr>
+            <td>@x.FirstName</td>
+            <td>@x.LastName</td>
+            <td>@x.PhoneNumber</td>
+            <td>@x.Age</td>
+            <td>@x.JobType</td>
+            <td>@x.Experience</td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
